@@ -80,6 +80,7 @@ app.delete("/api/notes/:id", (req, res) => {
     if (err) throw err;
     let checkArray = JSON.parse(data);
 
+    //check each element of the current JSON db. If the ID matches that sent by the delete request, remove that item from array via splice() method
     for (let i = 0; i < checkArray.length; i++) {
       if (checkArray[i].id === req.params.id) {
         checkArray.splice(i, 1);

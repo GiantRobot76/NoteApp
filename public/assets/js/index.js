@@ -93,7 +93,7 @@ const handleNoteDelete = (e) => {
     getAndRenderNotes();
     renderActiveNote();
   });
-  location.reload();
+  location.reload(); //added reload so that page immediately refreshes to show list less deleted item
 };
 
 // Sets the activeNote and displays it
