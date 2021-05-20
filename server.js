@@ -83,8 +83,8 @@ app.delete("/api/notes/:id", (req, res) => {
 
     for (let i = 0; i < checkArray.length; i++) {
       if (checkArray[i].id === req.params.id) {
-        newList = checkArray.splice(i, 1);
-        console.log(newList);
+        checkArray.splice(i, 1);
+        console.log(checkArray);
       }
     }
   });
