@@ -87,6 +87,8 @@ app.delete("/api/notes/:id", (req, res) => {
         console.log(checkArray);
       }
     }
+    //write to JSON new array with deleted member removed
+    fs.writeFile("./db/db.json", (err, data) => {});
   });
 });
 
