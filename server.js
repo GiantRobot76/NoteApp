@@ -79,7 +79,6 @@ app.delete("/api/notes/:id", (req, res) => {
   fs.readFile("./db/db.json", "utf-8", (err, data) => {
     if (err) throw err;
     let checkArray = JSON.parse(data);
-    let newList;
 
     for (let i = 0; i < checkArray.length; i++) {
       if (checkArray[i].id === req.params.id) {
@@ -88,7 +87,9 @@ app.delete("/api/notes/:id", (req, res) => {
       }
     }
     //write to JSON new array with deleted member removed
-    fs.writeFile("./db/db.json", (err, data) => {});
+    fs.writeFile("./db/db.json", JSON.stringify(checkArray), "utf-8", (err) => {
+      if (err) throw err;
+    });
   });
 });
 
